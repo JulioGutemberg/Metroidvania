@@ -95,6 +95,7 @@ public class PlayerControl : MonoBehaviour
             }
             else if (doubleJump)
             {
+                animPlayer.SetBool("isDown", false);
                 animPlayer.SetInteger("Transition", 3);
                 rigPlayer.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 doubleJump = false;
@@ -105,12 +106,23 @@ public class PlayerControl : MonoBehaviour
 
     }
 
+    void Down()
+    {
+        //if (isDown == true) {
+        
+            animPlayer.SetBool("isDown", true);
+        
+        //}
+        
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 6)
         {
             Debug.Log("No chao");
             isJumping = false;
+            animPlayer.SetBool("isDown", false);
         }
     }
 }
