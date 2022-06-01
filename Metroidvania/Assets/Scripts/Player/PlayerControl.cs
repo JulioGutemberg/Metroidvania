@@ -108,12 +108,8 @@ public class PlayerControl : MonoBehaviour
 
     void Down()
     {
-        //if (isDown == true) {
-        
-            animPlayer.SetBool("isDown", true);
-        
-        //}
-        
+            animPlayer.SetBool("isDown", true);  
+   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
