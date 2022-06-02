@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Rigidbody2D rigPlayer;
+    public Rigidbody2D rigPlayer;
     private Animator animPlayer;
     private SpriteRenderer rendererPlayer;
     public static PlayerControl instance;
@@ -109,16 +109,22 @@ public class PlayerControl : MonoBehaviour
     void Down()
     {
             animPlayer.SetBool("isDown", true);  
-   
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6)
-        {
-            Debug.Log("No chao");
-            isJumping = false;
-            animPlayer.SetBool("isDown", false);
+            
+        switch (collision.gameObject.layer){
+
+            case 6:
+                Debug.Log("No chao");
+                isJumping = false;
+                animPlayer.SetBool("isDown", false);
+                break;
+
+
         }
+
     }
 }
