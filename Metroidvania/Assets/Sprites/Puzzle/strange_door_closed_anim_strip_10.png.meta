@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1edb6cb95ff24e45a459b52a7dc244f
+guid: 20621251154e2354a93d276d6cbb0236
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_0
+      name: strange_door_closed_anim_strip_10_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 16
+        width: 16
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9072675aacdfc8b4a838ae1d51529c7c
-      internalID: 1619775600
+      spriteID: 29ebb6686ccb14d4ead7bcd1ed3c874b
+      internalID: 1848283444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_1
+      name: strange_door_closed_anim_strip_10_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8cc7a219a4caad4eafd34a9f69c745b
+      internalID: 829464310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strange_door_closed_anim_strip_10_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
-        height: 16
+        width: 16
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +172,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd789513cb309c84896aead14d1acf47
-      internalID: -2111987925
+      spriteID: ec19b452e49d68142b2e30a32651108f
+      internalID: -1664827392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_2
+      name: strange_door_closed_anim_strip_10_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08719caf8f4ca4b40b792b621dde9660
+      internalID: 1739079001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strange_door_closed_anim_strip_10_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 16
+        width: 16
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef28cfdf965a2fc4c99a6c41ba7ca253
-      internalID: -1310430472
+      spriteID: f215bd32af6fcc748bb9d23432bda38c
+      internalID: 1202771194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: herochar_sword_attack_anim_strip_4_3
+      name: strange_door_closed_anim_strip_10_5
       rect:
         serializedVersion: 2
-        x: 96
+        x: 80
         y: 0
-        width: 32
-        height: 16
+        width: 16
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +235,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a4dcca4de561aa4ba4f29a73fc85d4d
-      internalID: -888020879
+      spriteID: 2188b700778b3b74fbec0dd5a0c0fc28
+      internalID: 1363030788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strange_door_closed_anim_strip_10_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35abe56ca6f29d04188605159290b740
+      internalID: -205252367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strange_door_closed_anim_strip_10_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d40744ad269d640968110276b2aa85
+      internalID: -1138240867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strange_door_closed_anim_strip_10_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c915a8f1e284b74c939711266524709
+      internalID: -2042217701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strange_door_closed_anim_strip_10_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795d82e63cfac84408f131efecaf499f
+      internalID: 1200105830
       vertices: []
       indices: 
       edges: []
@@ -210,10 +336,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      herochar_sword_attack_anim_strip_4_0: 1619775600
-      herochar_sword_attack_anim_strip_4_2: -1310430472
-      herochar_sword_attack_anim_strip_4_3: -888020879
-      herochar_sword_attack_anim_strip_4_1: -2111987925
+      strange_door_closed_anim_strip_10_7: -1138240867
+      strange_door_closed_anim_strip_10_4: 1202771194
+      strange_door_closed_anim_strip_10_9: 1200105830
+      strange_door_closed_anim_strip_10_5: 1363030788
+      strange_door_closed_anim_strip_10_8: -2042217701
+      strange_door_closed_anim_strip_10_1: 829464310
+      strange_door_closed_anim_strip_10_0: 1848283444
+      strange_door_closed_anim_strip_10_6: -205252367
+      strange_door_closed_anim_strip_10_3: 1739079001
+      strange_door_closed_anim_strip_10_2: -1664827392
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

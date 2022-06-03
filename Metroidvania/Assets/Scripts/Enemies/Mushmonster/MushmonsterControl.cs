@@ -15,7 +15,7 @@ public class MushmonsterControl : MonoBehaviour
     public int idTarget;
     public bool isRight;
     public float speed;
-    public float radius_Check;  
+    public int health_Mush;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +65,21 @@ public class MushmonsterControl : MonoBehaviour
         mushSprite.flipX = !mushSprite.flipX;
     }
 
+    public void OnHit()
+    {
+        anim_Mush.SetTrigger("Hit");
+        health_Mush--;
+        speed = 1;
+        StartCoroutine(IsDamaging());
+
+        if (health_Mush <= 0)
+        {
+            speed = 0;
+            anim_Mush.SetTrigger("Death");
+            Destroy(gameObject, 0.5f);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -83,6 +98,12 @@ public class MushmonsterControl : MonoBehaviour
         yield return new WaitForSeconds(1f);
         speed = 3;
         anim_Mush.SetInteger("Transition", 0);
+    }
+
+    IEnumerator IsDamaging()
+    {
+        yield return new WaitForSeconds(0.5f);
+        speed = 3;
     }
 
 }

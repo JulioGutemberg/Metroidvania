@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6302123622982565261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mushmonster
-  m_TagString: Untagged
+  m_TagString: Enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8784418, y: 0.47215676}
+  m_Size: {x: 0.8913903, y: 0.47215676}
   m_EdgeRadius: 0
 --- !u!61 &6302123622999305781
 BoxCollider2D:
@@ -204,7 +204,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008849144, y: 0.21615839}
+  m_Offset: {x: 0.00409925, y: 0.21615839}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -215,7 +215,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75621796, y: 0.24167442}
+  m_Size: {x: 0.6267345, y: 0.24167442}
   m_EdgeRadius: 0
 --- !u!114 &6302123622999305782
 MonoBehaviour:
@@ -239,7 +239,7 @@ MonoBehaviour:
   idTarget: 0
   isRight: 0
   speed: 3
-  radius_Check: 0.36
+  health_Mush: 3
 --- !u!1 &6302123624177450909
 GameObject:
   m_ObjectHideFlags: 0

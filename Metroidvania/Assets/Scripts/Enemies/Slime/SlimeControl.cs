@@ -55,12 +55,34 @@ public class SlimeControl : MonoBehaviour
     {
         anim_Slime.SetTrigger("Hit");
         health_Slime--;
+        
+        if (transform.rotation.y == 0) //Quando o valor da rotação é 0 , speed tem um valor negativo.
+        {                              //When the value of rotation is 0, speed has a negative value.
+            speed += 2;
+        } else {
+            speed -= 2; 
+        }
+        StartCoroutine(IsDamaging());
 
         if (health_Slime <= 0)
         {
             speed = 0;
-            anim_Slime.SetTrigger("Dead");
+            anim_Slime.SetTrigger("Death");
             Destroy(gameObject, 0.5f);
+        }
+    }
+
+    IEnumerator IsDamaging()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+        if (transform.rotation.y == 0)
+        {
+            speed -= 2;
+        }
+        else
+        {
+            speed += 2;
         }
     }
 
