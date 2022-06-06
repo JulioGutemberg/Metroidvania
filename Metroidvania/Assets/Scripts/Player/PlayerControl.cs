@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
     private bool doubleJump;
     private bool isAttacking;
     private bool isDamaging;
+    public bool isGrounded;
     private float timeCount;
 
     public float speedPlayer;
@@ -70,6 +71,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (!isJumping && !isAttacking)
             {
+                isGrounded = true;
                 animPlayer.SetInteger("Transition", 1);
             }
             transform.eulerAngles = new Vector3(0, 0, 0);
@@ -79,6 +81,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (!isJumping && !isAttacking)
             {
+                isGrounded = true;
                 animPlayer.SetInteger("Transition", 1);
             }
             transform.eulerAngles = new Vector3(0, 180, 0);
@@ -86,6 +89,7 @@ public class PlayerControl : MonoBehaviour
 
         if (movement == 0 && !isJumping && !isAttacking)
         {
+            isGrounded = true;
             animPlayer.SetInteger("Transition", 0);
         }
     }
@@ -100,6 +104,7 @@ public class PlayerControl : MonoBehaviour
                 rigPlayer.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 isJumping = true;
                 doubleJump = true;
+                isGrounded = false;
                 //soundFX.PlaySFX(soundFX.jumpSFX);
             }
             else if (doubleJump)
@@ -108,6 +113,7 @@ public class PlayerControl : MonoBehaviour
                 animPlayer.SetInteger("Transition", 3);
                 rigPlayer.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 doubleJump = false;
+                isGrounded = false;
                 //soundFX.PlaySFX(soundFX.jumpSFX);
             }
             
@@ -185,7 +191,6 @@ public class PlayerControl : MonoBehaviour
         switch(collision.gameObject.layer){
 
             case 6:
-                Debug.Log("No chao");
                 isJumping = false;
                 animPlayer.SetBool("isDown", false);
                 break;
@@ -194,7 +199,6 @@ public class PlayerControl : MonoBehaviour
                 OnDamage();
                 break;
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -202,6 +206,14 @@ public class PlayerControl : MonoBehaviour
         if(collision.gameObject.layer == 8){
             OnDamage();
         }  
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Stone") && isGrounded==true)
+        {
+            animPlayer.SetInteger("Transition", 4);
+        }
     }
 
     private void OnDrawGizmos()
