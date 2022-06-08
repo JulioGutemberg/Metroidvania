@@ -18,7 +18,7 @@ public class SystemLever : MonoBehaviour
         anim_Lever = GetComponent<Animator>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         OnCollision();
     }
@@ -42,6 +42,10 @@ public class SystemLever : MonoBehaviour
             {
                 OnPulling();
             }
+
+        } else
+        {
+            txt.gameObject.SetActive(false);
         }
 
     }

@@ -10,12 +10,14 @@ public class MushmonsterControl : MonoBehaviour
 
     public Transform[] position;
     public Transform jump_Point;
-    public LayerMask layer;
+    public LayerMask layerPlayer;
 
     public int idTarget;
+    public int health_Mush;
+    public int jumpForce;
     public bool isRight;
     public float speed;
-    public int health_Mush;
+    public float radiusCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class MushmonsterControl : MonoBehaviour
     void Update()
     {
         Move();
+        OnCollision();
     }
 
     void Move()
@@ -80,16 +83,21 @@ public class MushmonsterControl : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    void OnCollision()
     {
-        if (collision.gameObject.tag == "Player")
+        Collider2D check = Physics2D.OverlapCircle(jump_Point.position, radiusCheck, layerPlayer);
+
+        if (check != null)
         {
             Debug.Log("Player na minha cabeça");
             anim_Mush.SetInteger("Transition", 1);
             speed = 0;
-            PlayerControl.instance.rigPlayer.AddForce(new Vector2(0, 500));
+            PlayerControl.instance.rigPlayer.AddForce(new Vector2(0, jumpForce));
             StartCoroutine(OnCrushed());
+
         }
+        
     }
 
     IEnumerator OnCrushed()
@@ -104,6 +112,11 @@ public class MushmonsterControl : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         speed = 3;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(jump_Point.position, radiusCheck);
     }
 
 }
