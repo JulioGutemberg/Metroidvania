@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
     public Transform hit_Point;
     public Rigidbody2D rigPlayer;
     public LayerMask enemyLayer;
+    public LayerMask treasureLayer;
 
     private bool isJumping;
     private bool doubleJump;
@@ -133,6 +134,7 @@ public class PlayerControl : MonoBehaviour
             isAttacking = true;
             animPlayer.SetInteger("Transition", 5);
             Collider2D hit = Physics2D.OverlapCircle(hit_Point.position, hit_Radius, enemyLayer);
+            Collider2D hitTreasure = Physics2D.OverlapCircle(hit_Point.position, hit_Radius, treasureLayer);
 
             if (hit != null){
 
@@ -145,7 +147,20 @@ public class PlayerControl : MonoBehaviour
                 {
                     hit.GetComponent<MushmonsterControl>().OnHit();
                 }
-            
+
+                if (hit.GetComponent<GoblinControl>())
+                {
+                    hit.GetComponent<GoblinControl>().OnHit();
+                }
+
+            }
+
+            if (hitTreasure != null)
+            {
+                if (hitTreasure.GetComponent<SystemTreasure>())
+                {
+                    hitTreasure.GetComponent<SystemTreasure>().getTreasure();
+                }
             }
 
             StartCoroutine(OnAttack());
@@ -205,7 +220,33 @@ public class PlayerControl : MonoBehaviour
     {
         if(collision.gameObject.layer == 8){
             OnDamage();
-        }  
+        }
+
+        if(collision.CompareTag("Coin"))
+        {
+            collision.GetComponent<Animator>().SetTrigger("Hit");
+            GameController.instance.GetCoin();
+            //soundFX.PlaySFX(soundFX.coinSFX);
+            Destroy(collision.gameObject, 0.3f);
+        }
+
+        if (collision.CompareTag("Potion")){
+            if (manaHP.health < manaHP.healthMAX)
+            {
+                manaHP.health++;
+            } else
+            {
+                GameController.instance.GetCoin();
+            }
+
+            Destroy(collision.gameObject);
+        }
+
+        /*if (collision.CompareTag("NextLVL"))
+        {
+            GameController.instance.NextLvl();
+        }*/
+
     }
 
     private void OnCollisionStay2D(Collision2D collision)

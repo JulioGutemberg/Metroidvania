@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Enemie
   - Stone
+  - Coin
+  - Vase
+  - Treasure
+  - Potion
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - Enemie
   - Player
   - Puzzle
-  - 
+  - Treasure
   - 
   - 
   - 
