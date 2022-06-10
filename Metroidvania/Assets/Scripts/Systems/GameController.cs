@@ -47,8 +47,12 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        PlayerPrefs.DeleteAll();
+    }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+        PlayerPrefs.DeleteAll();
     }
 
 }

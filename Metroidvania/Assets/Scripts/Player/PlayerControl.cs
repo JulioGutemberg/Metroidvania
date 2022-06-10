@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     private Animator animPlayer;
     private ResourceSystem manaHP;
+    private SystemSound playerAudio;
 
     public static PlayerControl instance;
     public Transform hit_Point;
@@ -47,6 +48,7 @@ public class PlayerControl : MonoBehaviour
         animPlayer = GetComponent<Animator>();
         rigPlayer = GetComponent<Rigidbody2D>();
         manaHP = GetComponent<ResourceSystem>();
+        playerAudio = GetComponent<SystemSound>();
     }
 
     // Update is called once per frame
@@ -106,7 +108,7 @@ public class PlayerControl : MonoBehaviour
                 isJumping = true;
                 doubleJump = true;
                 isGrounded = false;
-                //soundFX.PlaySFX(soundFX.jumpSFX);
+                playerAudio.PlaySFX(playerAudio.jumpSound);
             }
             else if (doubleJump)
             {
@@ -115,7 +117,7 @@ public class PlayerControl : MonoBehaviour
                 rigPlayer.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 doubleJump = false;
                 isGrounded = false;
-                //soundFX.PlaySFX(soundFX.jumpSFX);
+                playerAudio.PlaySFX(playerAudio.jumpSound);
             }
             
         }
@@ -135,6 +137,7 @@ public class PlayerControl : MonoBehaviour
             animPlayer.SetInteger("Transition", 5);
             Collider2D hit = Physics2D.OverlapCircle(hit_Point.position, hit_Radius, enemyLayer);
             Collider2D hitTreasure = Physics2D.OverlapCircle(hit_Point.position, hit_Radius, treasureLayer);
+            playerAudio.PlaySFX(playerAudio.hitSound);
 
             if (hit != null){
 
@@ -226,7 +229,7 @@ public class PlayerControl : MonoBehaviour
         {
             collision.GetComponent<Animator>().SetTrigger("Hit");
             GameController.instance.GetCoin();
-            //soundFX.PlaySFX(soundFX.coinSFX);
+            playerAudio.PlaySFX(playerAudio.coindSound);
             Destroy(collision.gameObject, 0.3f);
         }
 
