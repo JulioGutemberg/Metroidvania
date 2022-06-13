@@ -35,7 +35,8 @@ public class GameController : MonoBehaviour
     }
     public void NextLvl()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("Proxima fase");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ShowGameOver()

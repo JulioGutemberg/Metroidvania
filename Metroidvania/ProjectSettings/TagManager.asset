@@ -12,6 +12,8 @@ TagManager:
   - Potion
   - Wall
   - Ground
+  - Platform
+  - NextLVL
   layers:
   - Default
   - TransparentFX

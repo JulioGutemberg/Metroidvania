@@ -9,6 +9,7 @@ public class SystemSound : MonoBehaviour
     public AudioClip coindSound;
     public AudioClip jumpSound;
     public AudioClip hitSound;
+    public AudioClip hurtSound;
 
     // Start is called before the first frame update
     void Start()

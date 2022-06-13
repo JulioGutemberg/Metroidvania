@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     private Animator animPlayer;
-    private ResourceSystem manaHP;
+    private ResourceSystem hpSystem;
     private SystemSound playerAudio;
 
     public static PlayerControl instance;
@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
     {
         animPlayer = GetComponent<Animator>();
         rigPlayer = GetComponent<Rigidbody2D>();
-        manaHP = GetComponent<ResourceSystem>();
+        hpSystem = GetComponent<ResourceSystem>();
         playerAudio = GetComponent<SystemSound>();
     }
 
@@ -182,13 +182,15 @@ public class PlayerControl : MonoBehaviour
         if (!isDamaging)
         {
             animPlayer.SetTrigger("Hit");
-            manaHP.health--;
+            hpSystem.health--;
             isDamaging = true;
+            playerAudio.PlaySFX(playerAudio.hurtSound);
+
         }
 
-        if (manaHP.health <= 0)
+        if (hpSystem.health <= 0)
         {
-            Debug.Log("Morri");
+            GameController.instance.ShowGameOver();
         }
     }
     void Recovery()
@@ -217,6 +219,11 @@ public class PlayerControl : MonoBehaviour
                 OnDamage();
                 break;
         }
+
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            this.transform.parent = collision.transform;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -234,9 +241,9 @@ public class PlayerControl : MonoBehaviour
         }
 
         if (collision.CompareTag("Potion")){
-            if (manaHP.health < manaHP.healthMAX)
+            if (hpSystem.health < hpSystem.healthMAX)
             {
-                manaHP.health++;
+                hpSystem.health++;
             } else
             {
                 GameController.instance.GetCoin();
@@ -245,10 +252,10 @@ public class PlayerControl : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        /*if (collision.CompareTag("NextLVL"))
+        if (collision.CompareTag("NextLVL"))
         {
             GameController.instance.NextLvl();
-        }*/
+        }
 
     }
 
@@ -257,6 +264,14 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Stone") && isGrounded==true)
         {
             animPlayer.SetInteger("Transition", 4);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            this.transform.parent = null;
         }
     }
 
