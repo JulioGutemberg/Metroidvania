@@ -8,6 +8,7 @@ public class SlimeControl : MonoBehaviour
     private Animator anim_Slime;
     public Transform check_Point;
     public LayerMask layer;
+    public LayerMask layer2;
 
     public float speed;
     public float radius_Check;
@@ -36,8 +37,22 @@ public class SlimeControl : MonoBehaviour
     {
 
         Collider2D check = Physics2D.OverlapCircle(check_Point.position, radius_Check, layer);
+        Collider2D check2 = Physics2D.OverlapCircle(check_Point.position, radius_Check, layer2);
 
         if (check != null)
+        {
+            speed = -speed;
+            if (transform.eulerAngles.y == 0)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+        }
+
+        if (check2 != null)
         {
             speed = -speed;
             if (transform.eulerAngles.y == 0)
