@@ -43,15 +43,13 @@ public class GoblinControl : MonoBehaviour
     private void Update()
     {
         TrackingPlayer();
-    }
-    void FixedUpdate()
-    {
         OnMove();
     }
 
     void TrackingPlayer()
     {
         RaycastHit2D hit_Front = Physics2D.Raycast(pointRaycast_Front.position, direction, maxVision);
+        RaycastHit2D hit_Back = Physics2D.Raycast(pointRaycast_Back.position, -direction, maxVision);
 
         if (hit_Front.collider != null)
         {
@@ -68,14 +66,13 @@ public class GoblinControl : MonoBehaviour
                 }
             }
 
-            else if (hit_Front.transform.CompareTag("Wall"))
+            else if (hit_Front.transform.CompareTag("Ground") || hit_Front.transform.CompareTag("Wall"))
             {
                 isFront = false;
                 anim_Goblin.SetInteger("Transition", 0);
             }
         }
 
-        RaycastHit2D hit_Back = Physics2D.Raycast(pointRaycast_Back.position, -direction, maxVision);
 
         if (hit_Back.collider != null)
         {
@@ -85,11 +82,12 @@ public class GoblinControl : MonoBehaviour
                 isFront = true;
             }
 
-            else if (hit_Back.transform.CompareTag("Ground") || hit_Front.transform.CompareTag("Wall"))
+            if (hit_Back.transform.CompareTag("Ground") || hit_Back.transform.CompareTag("Wall"))
             {
                 isFront = false;
                 anim_Goblin.SetInteger("Transition", 0);
             }
+                isFront = true;
         }
     }
 
@@ -120,7 +118,6 @@ public class GoblinControl : MonoBehaviour
         if (hit != null)
         {
             hit.GetComponent<PlayerControl>().OnDamage();
-
         }
     }
 
