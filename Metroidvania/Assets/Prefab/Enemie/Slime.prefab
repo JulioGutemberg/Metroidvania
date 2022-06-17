@@ -203,6 +203,9 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 128
+  layer2:
+    serializedVersion: 2
+    m_Bits: 64
   speed: 3
   radius_Check: 0.15
   health_Slime: 3
