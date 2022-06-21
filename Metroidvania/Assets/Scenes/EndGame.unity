@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 1034549018}
   - component: {fileID: 1034549017}
   m_Layer: 5
-  m_Name: Button_Play
+  m_Name: Button_PlayAgain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1594716303}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: NextLvl
+        m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1160,6 +1160,8 @@ MonoBehaviour:
   txtScore: {fileID: 0}
   score: 0
   gameOverPanel: {fileID: 0}
+  panelPause: {fileID: 0}
+  resourceSystem: {fileID: 0}
 --- !u!4 &1594716304
 Transform:
   m_ObjectHideFlags: 0

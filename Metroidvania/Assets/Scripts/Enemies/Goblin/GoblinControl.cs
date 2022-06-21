@@ -46,6 +46,7 @@ public class GoblinControl : MonoBehaviour
         OnMove();
     }
 
+    #region Actions
     void TrackingPlayer()
     {
         RaycastHit2D hit_Front = Physics2D.Raycast(pointRaycast_Front.position, direction, maxVision);
@@ -133,6 +134,7 @@ public class GoblinControl : MonoBehaviour
             Destroy(gameObject, 0.5f);
         }
     }
+    #endregion
 
     private void OnDrawGizmosSelected()
     {

@@ -28,6 +28,7 @@ public class SlimeControl : MonoBehaviour
         OnCollision();
     }
 
+    #region Actions
     void Move()
     {
         rig_Slime.velocity = new Vector2(speed, rig_Slime.velocity.y);
@@ -100,6 +101,7 @@ public class SlimeControl : MonoBehaviour
             speed += 2;
         }
     }
+    #endregion
 
     void OnDrawGizmos()
     {

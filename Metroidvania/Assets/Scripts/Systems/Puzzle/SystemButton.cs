@@ -13,6 +13,7 @@ public class SystemButton : MonoBehaviour
         anim_Button = GetComponent<Animator>();    
     }
 
+    #region Actions
     void OnPressed()
     {
         anim_Button.SetBool("isActive", true);
@@ -24,6 +25,7 @@ public class SystemButton : MonoBehaviour
         anim_Button.SetBool("isActive", false);
         anim_Alvo.SetBool("isActive", false);
     }
+    #endregion
 
     private void OnCollisionStay2D(Collision2D collision)
     {

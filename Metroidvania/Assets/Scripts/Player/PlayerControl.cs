@@ -41,7 +41,6 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +49,6 @@ public class PlayerControl : MonoBehaviour
         hpSystem = GetComponent<ResourceSystem>();
         playerAudio = GetComponent<SystemSound>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -58,12 +56,12 @@ public class PlayerControl : MonoBehaviour
         Attack();
         Recovery();
     }
-
     void FixedUpdate()
     {
         Move();
     }
 
+    #region Actions
     void Move()
     {
         float movement = Input.GetAxis("Horizontal");
@@ -185,7 +183,6 @@ public class PlayerControl : MonoBehaviour
             hpSystem.health--;
             isDamaging = true;
             playerAudio.PlaySFX(playerAudio.hurtSound);
-
         }
 
         if (hpSystem.health <= 0)
@@ -205,7 +202,9 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {      
         switch(collision.gameObject.layer){
@@ -274,6 +273,7 @@ public class PlayerControl : MonoBehaviour
             this.transform.parent = null;
         }
     }
+    #endregion
 
     private void OnDrawGizmos()
     {

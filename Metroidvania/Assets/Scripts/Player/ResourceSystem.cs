@@ -14,7 +14,7 @@ public class ResourceSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < hearts.Length; i++)
+        for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)
             {
