@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour
             txtScore.text = "x" + score.ToString();
         }
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -35,7 +34,6 @@ public class GameController : MonoBehaviour
             PauseMenu();
         }
     }
-
     public void GetCoin()
     {
         score++;
@@ -43,7 +41,8 @@ public class GameController : MonoBehaviour
 
         PlayerPrefs.SetInt("score", score); //Salva localmente o valor do score
     }
-    
+
+    #region Actions
     public void NextLvl()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -82,5 +81,5 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
-
+    #endregion
 }
